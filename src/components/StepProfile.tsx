@@ -311,7 +311,7 @@ const StepProfile = ({ data, onChange, onSubmit }: StepProfileProps) => {
                     autoFocus
                   />
                 </div>
-                <div className="overflow-y-auto max-h-48">
+                <div className="overflow-y-auto max-h-[50vh] sm:max-h-48">
                   {filteredCidades.length === 0 ? (
                     <div className="px-4 py-3 text-sm text-muted-foreground">
                       {loadingCidades ? "Carregando..." : "Nenhuma cidade encontrada"}
