@@ -56,7 +56,7 @@ const StepProfile = ({ data, onChange, onSubmit }: StepProfileProps) => {
   const [cidadeFilter, setCidadeFilter] = useState("");
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Close dropdown on outside click or scroll
+  // Close dropdown on outside click only (not on scroll inside dropdown)
   const closeDropdown = useCallback(() => {
     setOpenDropdown(null);
   }, []);
@@ -68,12 +68,9 @@ const StepProfile = ({ data, onChange, onSubmit }: StepProfileProps) => {
         closeDropdown();
       }
     };
-    const handleScroll = () => closeDropdown();
     document.addEventListener("mousedown", handleClick);
-    window.addEventListener("scroll", handleScroll, true);
     return () => {
       document.removeEventListener("mousedown", handleClick);
-      window.removeEventListener("scroll", handleScroll, true);
     };
   }, [openDropdown, closeDropdown]);
 
