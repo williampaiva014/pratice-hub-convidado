@@ -151,7 +151,7 @@ const ThankYou = () => {
               <div className="w-8 h-8 rounded-full bg-destructive/20 flex items-center justify-center shrink-0 mt-0.5">
                 <span className="text-destructive text-sm">⚠️</span>
               </div>
-              <p className="text-muted-foreground text-sm leading-relaxed">
+              <p className="text-white/90 text-sm leading-relaxed">
                 A demora na ativação pode{" "}
                 <strong className="text-foreground">
                   liberar sua posição na fila regional
