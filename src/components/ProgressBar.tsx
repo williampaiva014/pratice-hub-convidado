@@ -26,7 +26,7 @@ const ProgressBar = ({ progress }: ProgressBarProps) => {
   }, [progress]);
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 px-4 pt-4">
+    <div className="absolute top-0 left-0 right-0 z-50 px-4 pt-4">
       <div className="relative h-6 bg-accent/60 rounded-full overflow-hidden backdrop-blur-sm border border-gold/20">
         <motion.div
           ref={barRef}
