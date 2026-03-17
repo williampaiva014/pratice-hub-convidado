@@ -31,19 +31,17 @@ const StepHeadline = ({ onNext }: StepHeadlineProps) => {
         transition={{ delay: 0.3, duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
         className="glass-card w-full max-w-[620px]"
       >
-        <TextReveal
-          text="Pare de tentar crescer sozinho. Quem joga isolado só sobrevive. Quem se conecta, domina."
-          className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight leading-tight text-foreground text-balance mb-6"
-          delay={0.5}
-        />
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight leading-tight text-foreground text-balance mb-6">
+          Pare de tentar <span className="text-primary font-extrabold">crescer sozinho</span>. Quem joga isolado só sobrevive. Quem se conecta, <span className="text-primary font-extrabold">domina</span>.
+        </h1>
 
         <motion.p
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
-          className="text-base md:text-lg text-muted-foreground leading-relaxed text-balance mb-10"
+          className="text-base md:text-lg text-white/90 leading-relaxed text-balance mb-10"
         >
-          Ative sua Carteira Infinita de clientes e escale seu lucro na trilha de monetização: indique parceiros e receba negócios qualificados.
+          Ative sua <strong className="text-foreground">Carteira Infinita</strong> de clientes e escale seu lucro na <strong className="text-foreground">trilha de monetização</strong>: indique parceiros e receba <strong className="text-foreground">negócios qualificados</strong>.
         </motion.p>
 
         <motion.button

@@ -30,24 +30,28 @@ const benefits = [
     title: "Ative a sua Carteira Infinita",
     description:
       "Deixe de depender apenas do seu esforço individual e utilize a força da rede para captar novos clientes.",
+    boldParts: ["força da rede", "captar novos clientes"],
   },
   {
     icon: Sparkles,
     title: "Ponte de Valor",
     description:
       "Rentabilize indicações por meio do Hub. Quanto mais negócios gerar, maior será o seu percentual de ganho.",
+    boldParts: ["Rentabilize indicações", "percentual de ganho"],
   },
   {
     icon: Shield,
     title: "Selo de Autoridade",
     description:
       "Posicione-se como um Práticer Member e diferencie-se com autoridade em um mercado cada vez mais competitivo.",
+    boldParts: ["Práticer Member", "autoridade"],
   },
   {
     icon: Users,
     title: "Networking de Elite",
     description:
       "Conecte-se a parceiros estratégicos e acesse conteúdos e mentorias exclusivos.",
+    boldParts: ["parceiros estratégicos", "mentorias exclusivos"],
   },
 ];
 
@@ -130,8 +134,8 @@ const ThankYou = () => {
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.1] mb-6">
             Parabéns{" "}
-            <span className="text-primary">{firstName}</span>, seu acesso
-            prioritário foi aprovado!
+            <span className="text-primary">{firstName}</span>, seu{" "}
+            <span className="text-primary font-extrabold">acesso prioritário</span> foi aprovado!
           </h1>
 
           <div className="glass-card mt-8 text-left space-y-4">
@@ -139,7 +143,7 @@ const ThankYou = () => {
               <div className="w-8 h-8 rounded-full bg-destructive/20 flex items-center justify-center shrink-0 mt-0.5">
                 <span className="text-destructive text-sm">⏳</span>
               </div>
-              <p className="text-muted-foreground text-sm leading-relaxed">
+               <p className="text-white/90 text-sm leading-relaxed">
                 Para manter o equilíbrio da rede liberei um{" "}
                 <strong className="text-foreground">
                   número restrito de acessos sem custo de adesão
@@ -151,7 +155,7 @@ const ThankYou = () => {
               <div className="w-8 h-8 rounded-full bg-destructive/20 flex items-center justify-center shrink-0 mt-0.5">
                 <span className="text-destructive text-sm">⚠️</span>
               </div>
-              <p className="text-muted-foreground text-sm leading-relaxed">
+              <p className="text-white/90 text-sm leading-relaxed">
                 A demora na ativação pode{" "}
                 <strong className="text-foreground">
                   liberar sua posição na fila regional
@@ -224,7 +228,7 @@ const ThankYou = () => {
               variants={fadeUp}
               className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-foreground"
             >
-              Promessas de Valor
+              <span className="text-primary font-extrabold">Promessas</span> de Valor
             </motion.h2>
           </motion.div>
 
@@ -246,8 +250,16 @@ const ThankYou = () => {
                   <h3 className="text-foreground font-semibold text-lg mb-2">
                     {b.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {b.description}
+                  <p className="text-white/90 text-sm leading-relaxed">
+                    {b.boldParts
+                      ? b.description.split(new RegExp(`(${b.boldParts.join("|")})`, "g")).map((part, idx) =>
+                          b.boldParts!.includes(part) ? (
+                            <strong key={idx} className="text-foreground">{part}</strong>
+                          ) : (
+                            <span key={idx}>{part}</span>
+                          )
+                        )
+                      : b.description}
                   </p>
                 </div>
               </motion.div>
@@ -277,7 +289,7 @@ const ThankYou = () => {
               variants={fadeUp}
               className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-foreground"
             >
-              Perguntas Frequentes
+              Perguntas <span className="text-primary font-extrabold">Frequentes</span>
             </motion.h2>
           </motion.div>
 
@@ -296,7 +308,7 @@ const ThankYou = () => {
                     <AccordionTrigger className="px-6 py-5 text-foreground text-left font-medium hover:no-underline hover:text-primary transition-colors">
                       {item.question}
                     </AccordionTrigger>
-                    <AccordionContent className="px-6 pb-5 text-muted-foreground text-sm leading-relaxed">
+                    <AccordionContent className="px-6 pb-5 text-white/90 text-sm leading-relaxed">
                       {item.answer}
                     </AccordionContent>
                   </AccordionItem>
@@ -317,10 +329,10 @@ const ThankYou = () => {
         >
           <motion.div custom={0} variants={fadeUp} className="glass-card">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-              Não perca sua posição
+              Não perca sua <span className="text-primary font-extrabold">posição</span>
             </h2>
-            <p className="text-muted-foreground text-sm mb-8 leading-relaxed">
-              Baixe o app agora e garanta seu acesso prioritário antes que sua
+            <p className="text-white/90 text-sm mb-8 leading-relaxed">
+              Baixe o app agora e garanta seu <strong className="text-foreground">acesso prioritário</strong> antes que sua
               vaga seja liberada para outro profissional da sua região.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
