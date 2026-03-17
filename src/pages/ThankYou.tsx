@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
-import { Check, Shield, Users, TrendingUp, Sparkles, ChevronDown, MessageCircle } from "lucide-react";
+import { Check, Shield, Users, TrendingUp, Sparkles, ChevronDown } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
