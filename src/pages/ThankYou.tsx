@@ -224,7 +224,7 @@ const ThankYou = () => {
               variants={fadeUp}
               className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-foreground"
             >
-              Promessas de Valor
+              <span className="text-primary font-extrabold">Promessas</span> de Valor
             </motion.h2>
           </motion.div>
 
