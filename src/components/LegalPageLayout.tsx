@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
-import logo from "@/assets/logo_pratice3.png";
+import logo from "@/assets/logo-prata.png";
 import Footer from "./Footer";
 
 interface LegalPageLayoutProps {

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import logo from "@/assets/logo_pratice3.png";
+import logo from "@/assets/logo-prata.png";
 import TextReveal from "./TextReveal";
 
 interface StepHeadlineProps {
@@ -41,7 +41,7 @@ const StepHeadline = ({ onNext }: StepHeadlineProps) => {
           transition={{ delay: 1.2, duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
           className="text-base md:text-lg text-white/90 leading-relaxed text-balance mb-10"
         >
-          Ative sua <strong className="text-foreground">Carteira Infinita</strong> de clientes e escale seu lucro na <strong className="text-foreground">trilha de monetização</strong>: indique parceiros e receba <strong className="text-foreground">negócios qualificados</strong>.
+          Ative sua <strong className="text-foreground">Carteira Infinita</strong> de clientes e escale seu lucro na <strong className="text-foreground">trilha de monetização</strong>: indicando parceiros e recebendo <strong className="text-foreground"> indicações de negócios qualificados</strong>.
         </motion.p>
 
         <motion.button
@@ -56,7 +56,7 @@ const StepHeadline = ({ onNext }: StepHeadlineProps) => {
           onClick={onNext}
           className="w-full md:w-auto py-4 px-10 rounded-xl btn-gold text-lg transition-all duration-300 hover:brightness-110"
         >
-          Quero ativar minha rede agora
+          Quero entrar pro Hub agora!
         </motion.button>
       </motion.div>
     </motion.div>

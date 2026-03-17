@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import logo from "@/assets/logo_pratice3.png";
+import logo from "@/assets/logo-prata.png";
 import TextReveal from "./TextReveal";
 
 interface StepGatekeeperProps {

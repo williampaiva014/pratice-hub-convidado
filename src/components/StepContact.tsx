@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { User, Mail, Phone, Instagram, ArrowRight } from "lucide-react";
-import logo from "@/assets/logo_pratice3.png";
+import logo from "@/assets/logo-prata.png";
 
 interface ContactData {
   nome: string;
@@ -17,17 +17,22 @@ interface StepContactProps {
 }
 
 const formatPhone = (value: string) => {
-  const digits = value.replace(/\D/g, "").slice(0, 11);
+  let digits = value.replace(/\D/g, "");
+  // Tratamento de autocomplete: se começar com 55 (Brasil) e o número estiver completo
+  if (digits.startsWith("55") && (digits.length === 12 || digits.length === 13)) {
+    digits = digits.slice(2);
+  }
+  digits = digits.slice(0, 11);
   if (digits.length <= 2) return digits.length ? `(${digits}` : "";
   if (digits.length <= 7) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
   return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
 };
 
 const fields = [
-  { key: "nome" as const, label: "Nome completo", placeholder: "Ex: João Silva", type: "text", icon: User },
-  { key: "email" as const, label: "Email", placeholder: "joao@empresa.com", type: "email", icon: Mail },
-  { key: "whatsapp" as const, label: "WhatsApp", placeholder: "(99) 99999-9999", type: "tel", icon: Phone },
-  { key: "instagram" as const, label: "Instagram (opcional)", placeholder: "@seuusuario", type: "text", icon: Instagram },
+  { key: "nome" as const, label: "Nome completo", placeholder: "Ex: João Silva", type: "text", autoComplete: "name", icon: User },
+  { key: "email" as const, label: "Email", placeholder: "joao@empresa.com", type: "email", autoComplete: "email", icon: Mail },
+  { key: "whatsapp" as const, label: "WhatsApp", placeholder: "(99) 99999-9999", type: "tel", autoComplete: "tel", icon: Phone },
+  { key: "instagram" as const, label: "Instagram (opcional)", placeholder: "@seuusuario", type: "text", autoComplete: "off", icon: Instagram },
 ];
 
 const StepContact = ({ data, onChange, onNext }: StepContactProps) => {
@@ -72,7 +77,7 @@ const StepContact = ({ data, onChange, onNext }: StepContactProps) => {
         </h2>
 
         <div className="space-y-4">
-          {fields.map(({ key, label, placeholder, type, icon: Icon }) => (
+          {fields.map(({ key, label, placeholder, type, autoComplete, icon: Icon }) => (
             <div key={key} className="relative">
               <label className="cinema-input-label mb-1.5 block">
                 {label}
@@ -82,6 +87,7 @@ const StepContact = ({ data, onChange, onNext }: StepContactProps) => {
                 <input
                   type={type}
                   inputMode={type === "tel" ? "tel" : undefined}
+                  autoComplete={autoComplete}
                   value={data[key]}
                   onChange={(e) => update(key, e.target.value)}
                   placeholder={placeholder}

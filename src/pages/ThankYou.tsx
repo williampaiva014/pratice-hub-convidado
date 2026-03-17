@@ -8,7 +8,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import logo from "@/assets/logo_pratice3.png";
+import logo from "@/assets/logo-prata.png";
+import pauloRobsonImg from "@/assets/paulo_robson.png";
 import ConstellationOverlay from "@/components/ConstellationOverlay";
 import GlowOrbs from "@/components/GlowOrbs";
 import GoldLightBeams from "@/components/GoldLightBeams";
@@ -143,7 +144,7 @@ const ThankYou = () => {
               <div className="w-8 h-8 rounded-full bg-destructive/20 flex items-center justify-center shrink-0 mt-0.5">
                 <span className="text-destructive text-sm">⏳</span>
               </div>
-               <p className="text-white/90 text-sm leading-relaxed">
+              <p className="text-white/90 text-sm leading-relaxed">
                 Para manter o equilíbrio da rede liberei um{" "}
                 <strong className="text-foreground">
                   número restrito de acessos sem custo de adesão
@@ -253,17 +254,68 @@ const ThankYou = () => {
                   <p className="text-white/90 text-sm leading-relaxed">
                     {b.boldParts
                       ? b.description.split(new RegExp(`(${b.boldParts.join("|")})`, "g")).map((part, idx) =>
-                          b.boldParts!.includes(part) ? (
-                            <strong key={idx} className="text-foreground">{part}</strong>
-                          ) : (
-                            <span key={idx}>{part}</span>
-                          )
+                        b.boldParts!.includes(part) ? (
+                          <strong key={idx} className="text-foreground">{part}</strong>
+                        ) : (
+                          <span key={idx}>{part}</span>
                         )
+                      )
                       : b.description}
                   </p>
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ──── HERO 02.5 — Quem Sou Eu ──── */}
+      <section className="relative z-10 py-24 px-6 bg-black/20 border-y border-white/5">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            
+            {/* Lado Esquerdo: Foto */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={fadeUp}
+              className="relative flex justify-center order-1"
+            >
+              <div className="relative w-full max-w-md lg:max-w-xl">
+                {/* Efeito de brilho de fundo */}
+                <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full" />
+                <img
+                  src={pauloRobsonImg}
+                  alt="Engenheiro Paulo Robson"
+                  className="relative z-10 w-full h-auto object-contain drop-shadow-2xl"
+                />
+              </div>
+            </motion.div>
+
+            {/* Lado Direito: Texto */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              className="space-y-6 order-2"
+            >
+              <motion.h2 custom={1} variants={fadeUp} className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white leading-[1.3] mb-8">
+                O Prátice Hub nasce de uma <span className="text-primary">história que pouca gente conhece de verdade.</span>
+              </motion.h2>
+
+              <motion.div custom={2} variants={fadeUp} className="space-y-6 text-base leading-relaxed text-white">
+                <p>
+                  A história do <strong>Engenheiro Paulo Robson</strong>… um menino pobre, de uma cidade de apenas 14 mil habitantes no interior do Ceará, que <strong>decidiu vencer através da construção civil</strong>. Sem contatos. Sem atalhos. Só decisão. Por muito tempo, tentou crescer sozinho. E como acontece com a maioria… <strong>evoluiu, mas travou</strong>.
+                </p>
+                <p>
+                  Até que em 2024, ele entendeu que para faturar mais e ganhar autoridade, precisava <strong>se conectar com profissionais e empresários em outro nível</strong>. Foi ali que <strong>o jogo virou</strong>: as <strong>conexões viraram negócios</strong>, os <strong>relacionamentos viraram oportunidades</strong> e as <strong>oportunidades viraram escala</strong>. Aquele engenheiro do interior se tornou a <strong>maior referência do Brasil</strong> em regularização de INSS de obras, economizando <strong>mais de 10 milhões em impostos</strong> e gerenciando <strong>mais de meio bilhão em obras</strong>.
+                </p>
+                <p>
+                  Mas o mais importante foi entender que <strong>ninguém cresce grande jogando sozinho</strong>, e é exatamente daí que nasce o Prátice Hub. Um ecossistema onde profissionais <strong>deixam de crescer isolados</strong> e passam a <strong>gerar oportunidades conectando-se uns aos outros</strong>. Paulo Robson decidiu abrir essa porta <strong>sem custo nenhum</strong>, mas essa condição <strong>pode ser encerrada a qualquer momento</strong>. Então a pergunta é simples: você vai continuar tentando sozinho… ou vai <strong>entrar no jogo de quem cresce de verdade?</strong>
+                </p>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -282,14 +334,14 @@ const ThankYou = () => {
               variants={fadeUp}
               className="inline-block mb-4 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-medium tracking-wider uppercase"
             >
-              Dúvidas Frequentes
+              Perguntas Frequentes
             </motion.span>
             <motion.h2
               custom={1}
               variants={fadeUp}
               className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-foreground"
             >
-              Perguntas <span className="text-primary font-extrabold">Frequentes</span>
+              <span className="text-primary font-extrabold">FAQ</span>
             </motion.h2>
           </motion.div>
 

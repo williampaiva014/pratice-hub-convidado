@@ -1,7 +1,7 @@
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Search } from "lucide-react";
-import logo from "@/assets/logo_pratice3.png";
+import logo from "@/assets/logo-prata.png";
 
 interface StepImpactBridgeProps {
   onComplete: () => void;

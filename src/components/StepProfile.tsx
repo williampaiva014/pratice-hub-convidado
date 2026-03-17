@@ -1,35 +1,32 @@
 import { motion } from "framer-motion";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { MapPin, Building2, Briefcase, Users, Target, ChevronDown, Rocket, Check } from "lucide-react";
-import logo from "@/assets/logo_pratice3.png";
+import logo from "@/assets/logo-prata.png";
 
 const ESTADOS = [
-  "AC","AL","AP","AM","BA","CE","DF","ES","GO","MA","MT","MS","MG","PA",
-  "PB","PR","PE","PI","RJ","RN","RS","RO","RR","SC","SP","SE","TO"
+  "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA",
+  "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"
 ];
 
 const SERVICOS = [
   "Projetos Arquitetônicos",
   "Projetos Complementares",
   "Execução de Obras",
-  "Execução de Reformas",
-  "Avaliador Credenciado (CAIXA / BB)",
-  "Regularização de Imóveis e Projetos",
-  "INSS de Obras (Redução e Regularização)",
+  "Prestação de Serviços",
+  "INSS de Obras",
   "Financiamento Imobiliário",
-  "Venda de Imóveis / Corretagem",
-  "Materiais, Equipamentos e Suprimentos",
+  "Venda de Imóveis",
+  "Fornecedor da construção",
   "Outros",
 ];
 
 const OBJETIVOS = [
-  "Ter uma carteira infinita de clientes.",
-  "Economizar nos impostos das obras e faturar com a indicação deste serviço.",
-  "Aumentar minha autoridade e posicionamento no mercado.",
-  "Conectar com pessoas relevantes do setor.",
-  "Receber indicações de parceiros qualificados.",
+  "Economizar nos impostos das obras",
+  "Receber indicações.",
   "Ser bonificado ao indicar parceiros.",
-  "Me qualificar com acesso a cursos e mentorias na plataforma.",
+  "CAumentar minha autoridade.",
+  "Conectar com pessoas relevantes.",
+  "Acesso a cursos e mentorias.",
   "Pegar minhas primeiras obras/serviços.",
 ];
 
@@ -223,9 +220,9 @@ const StepProfile = ({ data, onChange, onSubmit }: StepProfileProps) => {
 
         {openDropdown === key && (
           <motion.div
-            initial={{ opacity: 0, y: 8 }}
+            initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
-            className="absolute z-20 bottom-full left-0 right-0 mb-1 rounded-xl max-h-[60vh] sm:max-h-52 overflow-y-auto glass-card !p-0"
+            className="absolute z-20 top-full left-0 right-0 mt-1 rounded-xl max-h-[60vh] sm:max-h-52 overflow-y-auto glass-card !p-0"
             onPointerDown={(e) => e.stopPropagation()}
           >
             <div className="px-3 py-2 border-b border-white/10 text-xs text-muted-foreground">
@@ -239,17 +236,15 @@ const StepProfile = ({ data, onChange, onSubmit }: StepProfileProps) => {
                   key={opt}
                   type="button"
                   onClick={() => !isDisabled && toggleMulti(field, opt, max)}
-                  className={`w-full text-left px-4 py-2.5 text-sm flex items-center gap-2.5 transition-colors ${
-                    isDisabled
-                      ? "opacity-40 cursor-not-allowed"
-                      : "hover:bg-primary/20 cursor-pointer"
-                  } ${isSelected ? "text-gold" : "text-foreground"}`}
+                  className={`w-full text-left px-4 py-2.5 text-sm flex items-center gap-2.5 transition-colors ${isDisabled
+                    ? "opacity-40 cursor-not-allowed"
+                    : "hover:bg-primary/20 cursor-pointer"
+                    } ${isSelected ? "text-gold" : "text-foreground"}`}
                 >
-                  <span className={`w-4 h-4 rounded border shrink-0 flex items-center justify-center transition-colors ${
-                    isSelected
-                      ? "bg-gold border-gold"
-                      : "border-white/30"
-                  }`}>
+                  <span className={`w-4 h-4 rounded border shrink-0 flex items-center justify-center transition-colors ${isSelected
+                    ? "bg-gold border-gold"
+                    : "border-white/30"
+                    }`}>
                     {isSelected && <Check className="w-3 h-3 text-background" />}
                   </span>
                   <span className="flex-1 leading-snug">{opt}</span>
@@ -345,14 +340,13 @@ const StepProfile = ({ data, onChange, onSubmit }: StepProfileProps) => {
           whileTap={{ scale: 0.98 }}
           onClick={onSubmit}
           disabled={!isValid}
-          className={`w-full mt-6 py-4 rounded-xl font-semibold text-lg transition-all duration-300 flex items-center justify-center gap-2 ${
-            isValid
-              ? "btn-gold animate-pulse-glow"
-              : "bg-muted/30 text-muted-foreground cursor-not-allowed"
-          }`}
+          className={`w-full mt-6 py-4 rounded-xl font-semibold text-lg transition-all duration-300 flex items-center justify-center gap-2 ${isValid
+            ? "btn-gold animate-pulse-glow"
+            : "bg-muted/30 text-muted-foreground cursor-not-allowed"
+            }`}
         >
           <Rocket className="w-5 h-5" />
-          Finalizar e Acessar Oportunidades
+          Finalizar e Acessar o Hub
         </motion.button>
       </div>
     </motion.div>
