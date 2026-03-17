@@ -251,7 +251,15 @@ const ThankYou = () => {
                     {b.title}
                   </h3>
                   <p className="text-white/90 text-sm leading-relaxed">
-                    {b.description}
+                    {b.boldParts
+                      ? b.description.split(new RegExp(`(${b.boldParts.join("|")})`, "g")).map((part, idx) =>
+                          b.boldParts!.includes(part) ? (
+                            <strong key={idx} className="text-foreground">{part}</strong>
+                          ) : (
+                            <span key={idx}>{part}</span>
+                          )
+                        )
+                      : b.description}
                   </p>
                 </div>
               </motion.div>
