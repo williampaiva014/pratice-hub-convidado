@@ -24,7 +24,7 @@ const OBJETIVOS = [
   "Economizar nos impostos das obras",
   "Receber indicações.",
   "Ser bonificado ao indicar parceiros.",
-  "CAumentar minha autoridade.",
+  "Aumentar minha autoridade.",
   "Conectar com pessoas relevantes.",
   "Acesso a cursos e mentorias.",
   "Pegar minhas primeiras obras/serviços.",
