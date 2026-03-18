@@ -32,7 +32,7 @@ const StepHeadline = ({ onNext }: StepHeadlineProps) => {
         className="glass-card w-full max-w-[620px]"
       >
         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight leading-tight text-foreground text-balance mb-6">
-          Pare de tentar <span className="text-primary font-extrabold">crescer sozinho</span>. Quem joga isolado só sobrevive. Quem se conecta, <span className="text-primary font-extrabold">domina</span>.
+          Pare de tentar <span className="text-primary font-extrabold">crescer sozinho.</span> Quem joga isolado só sobrevive. Quem se conecta, <span className="text-primary font-extrabold">domina.</span>
         </h1>
 
         <motion.p

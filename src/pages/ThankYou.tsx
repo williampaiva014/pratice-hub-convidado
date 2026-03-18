@@ -28,7 +28,7 @@ const fadeUp = {
 const benefits = [
   {
     icon: TrendingUp,
-    title: "Ative a sua Carteira Infinita",
+    title: "Ative a sua Carteira Infinita de clientes",
     description:
       "Deixe de depender apenas do seu esforço individual e utilize a força da rede para captar novos clientes.",
     boldParts: ["força da rede", "captar novos clientes"],
@@ -119,15 +119,21 @@ const ThankYou = () => {
         />
 
         <div className="max-w-2xl">
-          <div className="inline-block mb-6 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10">
-            <span className="text-primary text-xs font-medium tracking-wider uppercase">
+          <div className="inline-flex items-center gap-2.5 mb-8 px-4 py-2 rounded-full border border-primary/30 bg-primary/5 backdrop-blur-sm shadow-[0_0_20px_rgba(212,175,55,0.15)] text-primary">
+            <div className="relative flex items-center justify-center w-5 h-5 shrink-0">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-40"></span>
+              <div className="relative flex items-center justify-center w-full h-full rounded-full bg-primary/20 border border-primary/50">
+                <Check className="w-3 h-3" strokeWidth={3} />
+              </div>
+            </div>
+            <span className="text-[11px] font-bold tracking-[0.15em] uppercase mt-0.5">
               Acesso Prioritário Aprovado
             </span>
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.1] mb-6">
             Parabéns{" "}
-            <span className="text-primary">{firstName}</span>, seu{" "}
+            <span className="text-primary">{firstName},</span> seu{" "}
             <span className="text-primary font-extrabold">acesso prioritário</span> foi aprovado!
           </h1>
 
@@ -202,9 +208,6 @@ const ThankYou = () => {
             <span className="inline-block mb-4 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-medium tracking-wider uppercase">
               Benefícios Exclusivos
             </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-foreground">
-              <span className="text-primary font-extrabold">Promessas</span> de Valor
-            </h2>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
@@ -243,8 +246,13 @@ const ThankYou = () => {
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             
+            {/* Headline Mobile-Only (Oculta no Desktop, visível no mobile, posicionada antes da imagem) */}
+            <h2 className="block lg:hidden text-2xl sm:text-3xl font-bold tracking-tight text-white leading-[1.3] text-center mb-[-1rem] order-first">
+              O Prátice Hub nasce de uma <span className="text-primary">história que pouca gente conhece de verdade.</span>
+            </h2>
+
             {/* Lado Esquerdo: Foto */}
-            <div className="relative flex justify-center order-1">
+            <div className="relative flex justify-center order-1 lg:order-none">
               <div className="relative w-full max-w-md lg:max-w-xl">
                 {/* Efeito de brilho de fundo */}
                 <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full" />
@@ -257,8 +265,9 @@ const ThankYou = () => {
             </div>
 
             {/* Lado Direito: Texto */}
-            <div className="space-y-6 order-2">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white leading-[1.3] mb-8">
+            <div className="space-y-6 order-2 lg:order-none">
+              {/* Headline Desktop-Only (Visível apenas em telas grandes) */}
+              <h2 className="hidden lg:block text-3xl md:text-4xl font-bold tracking-tight text-white leading-[1.3] mb-8">
                 O Prátice Hub nasce de uma <span className="text-primary">história que pouca gente conhece de verdade.</span>
               </h2>
 

@@ -7,7 +7,7 @@ interface StepImpactBridgeProps {
   onComplete: () => void;
 }
 
-const DURATION = 4;
+const DURATION = 7;
 
 const StepImpactBridge = ({ onComplete }: StepImpactBridgeProps) => {
   const progress = useMotionValue(0);
