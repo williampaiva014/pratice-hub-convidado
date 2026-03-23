@@ -40,6 +40,7 @@ const Index = () => {
     servicos: [] as string[],
     clientes: "",
     objetivo: [] as string[],
+    indicacaoEmail: "",
   });
 
   const handleNo = () => {

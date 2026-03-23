@@ -58,29 +58,36 @@ const benefits = [
 
 const faqItems = [
   {
-    question: "Como acesso o Hub após concluir o cadastro?",
-    answer:
-      "O acesso é realizado exclusivamente pelo aplicativo oficial. Assim que enviar seus dados, você receberá o link para download. Importante: você deve ativar sua conta no App utilizando o mesmo e-mail preenchido neste formulário para que sua aprovação prioritária e benefícios sejam vinculados corretamente ao seu perfil.",
+    question: "1. O que é o Prátice Hub e por que fui selecionado?",
+    answer: "O Prátice Hub é um ecossistema de elite que organiza as melhores oportunidades da construção civil. Você foi selecionado por um parceiro que já faz parte do movimento porque ele reconhece seu potencial para gerar e receber negócios. Aqui, você acessa uma trilha de monetização que cresce conforme suas ações e resultados dentro da plataforma.",
   },
   {
-    question: "Como funcionam os ganhos financeiros e a evolução de nível?",
-    answer:
-      "A nossa principal proposta de valor é a Ponte de Valor (indicações qualificadas). Ao realizar essas conexões, você entra em uma trilha de monetização onde recebe bonificações financeiras por negócios validados. Além do dinheiro, você ganha pontos que fazem seu perfil subir de nível; quanto mais você evolui, maiores se tornam seus percentuais de ganho e acessos dentro do Hub.",
+    question: "2. Preciso informar o e-mail do Práticer Member que me convidou?",
+    answer: "Embora não seja obrigatório para o cadastro, é altamente recomendável. Ao informar o e-mail de quem te indicou, o sistema realiza o \"check\" e valida a pontuação dupla (10 pontos para você e 10 para ele). Essa pontuação é o que acelera seu crescimento no Hub, liberando rapidamente o acesso a mentorias, conteúdos de elite e, principalmente, maiores percentuais de ganho nas suas indicações.",
   },
   {
-    question: "Qual o diferencial do Selo de Autoridade Prátice Member?",
-    answer:
-      "Ao ativar seu perfil, você deixa de ser um profissional isolado para integrar um movimento de elite. O selo confere autoridade imediata perante o mercado, sinalizando que você utiliza inteligência estratégica e fiscal para garantir máxima rentabilidade e segurança em suas obras e projetos.",
+    question: "3. Qual a vantagem financeira de me inscrever através deste convite?",
+    answer: "Por vir através de um link de um membro ativo, você tem o privilégio da isenção total de custos de adesão. Ao concluir seu cadastro agora, sua ativação será 100% gratuita. Mas atenção: este convite estratégico tem validade de apenas 7 dias. Após esse prazo, a condição de isenção expira e o acesso segue as regras de adesão padrão do mercado.",
   },
   {
-    question: "Existe suporte para aprender a utilizar as ferramentas?",
-    answer:
-      "Com certeza. Dentro do App, você terá acesso às Trilhas de Evolução: mentorias e conteúdos práticos desenhados para ensinar como rentabilizar sua rede de contatos, gerir suas Pontes de Valor e escalar seu posicionamento como um profissional de elite da construção civil.",
+    question: "4. Como faço para acessar o Hub após preencher este formulário?",
+    answer: "O acesso é feito exclusivamente pelo nosso aplicativo oficial. Assim que enviar seus dados, você receberá o link para download. Regra de Ouro: você deve ativar seu cadastro no App utilizando o mesmo e-mail preenchido neste formulário. Isso garante que sua vaga isenta e seus pontos de entrada sejam vinculados corretamente à sua conta.",
   },
   {
-    question: "Qual o investimento para ativar meu perfil?",
-    answer:
-      "Como você chegou através de um canal oficial de prospecção do Grupo Prátice, seu perfil possui validação prioritária e a ativação do seu cadastro é isenta. O modelo é estruturado para que o próprio faturamento gerado pelas suas parcerias e negócios dentro do ecossistema impulsione e sustente o crescimento da sua operação.",
+    question: "5. Como funcionam as indicações e os ganhos financeiros (Ponte de Valor)?",
+    answer: "Dentro do App, você entra em um fluxo real de negócios. Você pode receber demandas de parceiros qualificados ou realizar suas próprias indicações, que chamamos de Ponte de Valor. Sempre que uma indicação sua for validada e convertida, você recebe uma bonificação financeira. O sistema é meritocrático: seu percentual de ganho evolui e aumenta a cada nova Ponte de Valor concretizada.",
+  },
+  {
+    question: "6. O que é o Selo de Autoridade Práticer Member?",
+    answer: "Ao ativar seu cadastro, você deixa de ser um profissional isolado para se tornar parte de um movimento de elite. O selo confere autoridade imediata perante clientes e parceiros, sinalizando que você utiliza inteligência estratégica e fiscal para garantir a máxima rentabilidade nas obras e projetos.",
+  },
+  {
+    question: "7. Terei suporte para aprender a usar as ferramentas do ecossistema?",
+    answer: "Com certeza. No App, você terá acesso às Trilhas de Evolução. São conteúdos e mentorias práticas que ensinam como extrair o máximo de lucro da sua rede de contatos, como gerir suas indicações e como escalar seu posicionamento como um profissional de elite da construção civil.",
+  },
+  {
+    question: "8. Qual o custo para manter meu perfil ativo?",
+    answer: "Como sua entrada foi via convite de um parceiro, você já inicia com validação prioritária e custo zero de adesão. Uma vez ativo, você passa a usufruir da Carteira Infinita de Clientes. O objetivo é que o próprio faturamento gerado pelas suas Pontes de Valor dentro do ecossistema impulsione e sustente o crescimento do seu negócio.",
   },
 ];
 
@@ -245,7 +252,7 @@ const ThankYou = () => {
       <section className="relative z-10 py-24 px-6 bg-black/20 border-y border-white/5">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            
+
             {/* Headline Mobile-Only (Oculta no Desktop, visível no mobile, posicionada antes da imagem) */}
             <h2 className="block lg:hidden text-2xl sm:text-3xl font-bold tracking-tight text-white leading-[1.3] text-center mb-[-1rem] order-first">
               O Prátice Hub nasce de uma <span className="text-primary">história que pouca gente conhece de verdade.</span>
@@ -292,7 +299,7 @@ const ThankYou = () => {
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-16">
             <span className="inline-block mb-4 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-medium tracking-wider uppercase">
-              Perguntas Frequentes
+              Sua Entrada no Ecossistema Prátice Hub
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-foreground">
               <span className="text-primary font-extrabold">FAQ</span>

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useState, useEffect, useRef, useCallback } from "react";
-import { MapPin, Building2, Briefcase, Users, Target, ChevronDown, Rocket, Check } from "lucide-react";
+import { MapPin, Building2, Briefcase, Users, Target, ChevronDown, Rocket, Check, Mail } from "lucide-react";
 import logo from "@/assets/logo-prata.png";
 
 const ESTADOS = [
@@ -36,6 +36,7 @@ interface ProfileData {
   servicos: string[];
   clientes: string;
   objetivo: string[];
+  indicacaoEmail?: string;
 }
 
 interface StepProfileProps {
@@ -95,9 +96,9 @@ const StepProfile = ({ data, onChange, onSubmit }: StepProfileProps) => {
     setOpenDropdown(prev => (prev === key ? null : key));
     if (key === "cidade") setCidadeFilter("");
     if (key && window.innerWidth < 768) {
-        setTimeout(() => {
-          dropdownRefs.current[key]?.scrollIntoView({ behavior: "smooth", block: "start" });
-        }, 100);
+      setTimeout(() => {
+        dropdownRefs.current[key]?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100);
     }
   };
 
@@ -132,7 +133,7 @@ const StepProfile = ({ data, onChange, onSubmit }: StepProfileProps) => {
     Icon: React.ElementType
   ) => (
     <div className="relative" ref={el => dropdownRefs.current[key] = el}>
-      <label className="cinema-input-label mb-1.5 block">{label}</label>
+      <label className="cinema-input-label mb-1.5 block">{label} <span className="text-primary font-bold ml-0.5">*</span></label>
       <button
         type="button"
         onClick={() => toggle(key)}
@@ -191,7 +192,7 @@ const StepProfile = ({ data, onChange, onSubmit }: StepProfileProps) => {
     return (
       <div className="relative" ref={el => dropdownRefs.current[key] = el}>
         <div className="flex items-center justify-between mb-1.5">
-          <label className="cinema-input-label">{label}</label>
+          <label className="cinema-input-label">{label} <span className="text-primary font-bold ml-0.5">*</span></label>
           <span className={`text-xs font-medium ${atLimit ? "text-gold" : "text-muted-foreground"}`}>
             Máx. {max}
           </span>
@@ -275,15 +276,20 @@ const StepProfile = ({ data, onChange, onSubmit }: StepProfileProps) => {
       <img src={logo} alt="Prátice Hub" className="w-36 md:w-44 mb-3" />
 
       <div ref={containerRef} className="glass-card w-full max-w-[480px]">
-        <h2 className="text-xl md:text-2xl font-semibold tracking-tight text-foreground mb-6">
-          Perfil Profissional
-        </h2>
+        <div className="mb-6">
+          <h2 className="text-xl md:text-2xl font-semibold tracking-tight text-foreground mb-1.5">
+            Perfil Profissional
+          </h2>
+          <p className="text-sm text-foreground/70">
+            Os campos marcados com <span className="text-primary font-bold">*</span> são obrigatórios
+          </p>
+        </div>
 
         <div className="space-y-4">
           {renderSelect("estado", "Estado", data.estado, "Selecione seu estado", ESTADOS, "estado", MapPin)}
 
           <div className="relative">
-            <label className="cinema-input-label mb-1.5 block">Cidade</label>
+            <label className="cinema-input-label mb-1.5 block">Cidade <span className="text-primary font-bold ml-0.5">*</span></label>
             <button
               type="button"
               onClick={() => { if (data.estado) toggle("cidade"); }}
@@ -339,6 +345,22 @@ const StepProfile = ({ data, onChange, onSubmit }: StepProfileProps) => {
           {renderSelect("clientes", "Seus clientes são principalmente", data.clientes, "Selecione uma opção", clienteOptions, "clientes", Users)}
 
           {renderMultiSelect("objetivo", "Qual seu maior objetivo no hub?", data.objetivo, "Selecione seus objetivos", OBJETIVOS, "objetivo", 2, Target)}
+
+          <div className="relative">
+            <label className="cinema-input-label mb-1.5 block">
+              Digite o e-mail do Práticer Member que te convidou
+            </label>
+            <div className="relative">
+              <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 cinema-input-icon" />
+              <input
+                type="email"
+                value={data.indicacaoEmail || ""}
+                onChange={(e) => update("indicacaoEmail", e.target.value)}
+                placeholder="E-mail de quem te indicou (opcional)"
+                className="cinema-input !pl-10 w-full"
+              />
+            </div>
+          </div>
         </div>
 
         <motion.button
