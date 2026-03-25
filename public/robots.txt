@@ -1,8 +1,14 @@
+User-agent: *
+Allow: /
+Disallow: /obrigado
+
 User-agent: Googlebot
 Allow: /
+Disallow: /obrigado
 
 User-agent: Bingbot
 Allow: /
+Disallow: /obrigado
 
 User-agent: Twitterbot
 Allow: /
@@ -10,5 +16,4 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
-Allow: /
+Sitemap: https://engpaulorobson.com.br/sitemap.xml

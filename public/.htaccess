@@ -1,0 +1,63 @@
+# ─────────────────────────────────────────────────────────
+#  Prátice Hub — /formconvidado
+#  Configuração Apache para SPA React + Performance
+# ─────────────────────────────────────────────────────────
+
+Options -Indexes
+
+# ── SPA Fallback (React Router) ───────────────────────────
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /formconvidado/
+
+  # Não reescrever arquivos e diretórios existentes
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+
+  # Redirecionar tudo para index.html
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# ── Compressão Gzip ───────────────────────────────────────
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/x-javascript
+  AddOutputFilterByType DEFLATE application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+  AddOutputFilterByType DEFLATE font/woff
+  AddOutputFilterByType DEFLATE font/woff2
+</IfModule>
+
+# ── Cache de assets estáticos ─────────────────────────────
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # HTML — sem cache (SPA: sempre serve o index.html atual)
+  ExpiresByType text/html                 "access plus 0 seconds"
+
+  # CSS e JS compilados (Vite gera hash no nome: cache longo)
+  ExpiresByType text/css                  "access plus 1 year"
+  ExpiresByType application/javascript    "access plus 1 year"
+  ExpiresByType text/javascript           "access plus 1 year"
+
+  # Imagens
+  ExpiresByType image/png                 "access plus 6 months"
+  ExpiresByType image/jpeg                "access plus 6 months"
+  ExpiresByType image/webp                "access plus 6 months"
+  ExpiresByType image/svg+xml             "access plus 6 months"
+  ExpiresByType image/x-icon              "access plus 1 year"
+
+  # Fontes
+  ExpiresByType font/woff                 "access plus 1 year"
+  ExpiresByType font/woff2                "access plus 1 year"
+</IfModule>
+
+# ── Headers de Segurança ──────────────────────────────────
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

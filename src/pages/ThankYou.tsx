@@ -94,12 +94,18 @@ const faqItems = [
 const ThankYou = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const nome = (location.state as { nome?: string })?.nome || "Profissional";
+  const state = location.state as { nome?: string; fromForm?: boolean } | null;
+  const nome = state?.nome || "Profissional";
   const firstName = nome.split(" ")[0];
 
   useEffect(() => {
+    // Guard: only accessible after form submission
+    if (!state?.fromForm) {
+      navigate("/", { replace: true });
+      return;
+    }
     window.scrollTo(0, 0);
-  }, []);
+  }, [state, navigate]);
 
   return (
     <div
@@ -177,7 +183,7 @@ const ThankYou = () => {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="https://apps.apple.com"
+              href="https://apps.apple.com/us/app/pr%C3%A1tice-hub/id6760728943"
               target="_blank"
               rel="noopener noreferrer"
               className="transition-transform hover:scale-105"
@@ -341,7 +347,7 @@ const ThankYou = () => {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href="https://apps.apple.com"
+                href="https://apps.apple.com/us/app/pr%C3%A1tice-hub/id6760728943"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-transform hover:scale-105"

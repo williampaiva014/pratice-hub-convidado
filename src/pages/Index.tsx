@@ -34,7 +34,14 @@ const Index = () => {
     whatsapp: "",
     instagram: "",
   });
-  const [profileData, setProfileData] = useState({
+  const [profileData, setProfileData] = useState<{
+    estado: string;
+    cidade: string;
+    servicos: string[];
+    clientes: string;
+    objetivo: string[];
+    indicacaoEmail?: string;
+  }>({
     estado: "",
     cidade: "",
     servicos: [] as string[],
@@ -53,7 +60,7 @@ const Index = () => {
 
   const handleSubmit = () => {
     console.log("Lead data:", { ...contactData, ...profileData });
-    navigate("/obrigado", { state: { nome: contactData.nome } });
+    navigate("/obrigado", { state: { nome: contactData.nome, fromForm: true } });
   };
 
   return (
